@@ -1,5 +1,6 @@
 import { getDailyCloseData } from "@/lib/services"
 import { Bar } from "./bar"
+import { TooltipProvider } from "../ui/tooltip"
 
 type Props = {
   symbol: string
@@ -21,17 +22,21 @@ export async function BarChart({
   )
 
   return (
-    <div className="flex items-end h-full overflow-x-scroll pb-4">
-      {data.map((d, i) => (
-        <Bar
-          key={i}
-          label={d.date}
-          value={d.value}
-          maxValue={maxValue}
-          minValue={minValue}
-          maxHeightPixels={maxBarHeightPx}
-        />
-      ))}
+    <div className="h-full w-full pb-10">
+      <div className="flex items-end h-full overflow-x-scroll">
+        <TooltipProvider disableHoverableContent delayDuration={0}>
+          {data.map((d, i) => (
+            <Bar
+              key={i}
+              label={d.date}
+              value={d.value}
+              maxValue={maxValue}
+              minValue={minValue}
+              maxHeightPixels={maxBarHeightPx}
+            />
+          ))}
+        </TooltipProvider>
+      </div>
     </div>
   )
 }

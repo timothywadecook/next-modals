@@ -1,5 +1,6 @@
 "use client"
 import { useMemo, useState } from "react"
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 
 export function Bar({
   maxHeightPixels = 240,
@@ -33,15 +34,22 @@ export function Bar({
   const resetHeight = () => setH(barHeight)
 
   return (
-    <div className="relative group flex flex-col items-center hover:cursor-pointer">
-      <div
-        onMouseEnter={scaleHeight}
-        onMouseLeave={resetHeight}
-        onClick={removeItem}
-        style={{ height: h, display }}
-        className="bg-green-300 w-4 hover:bg-green-600 transition-all duration-300 border-r border-white"
-      />
-      <span className="sr-only">{`${label}: ${value}`}</span>
-    </div>
+    <Tooltip>
+      <TooltipTrigger>
+        <div
+          onMouseEnter={scaleHeight}
+          onMouseLeave={resetHeight}
+          onClick={removeItem}
+          style={{ height: h, display }}
+          className="bg-green-300 w-4 hover:bg-green-600 transition-all duration-300 border-r border-white"
+        />
+      </TooltipTrigger>
+      <TooltipContent side="bottom">
+        <div className="flex items-center gap-x-2 text-sm">
+          <span className="text-sm font-semibold">${value}</span>
+          <span className="text-sm text-muted-foreground">{`${label}`}</span>
+        </div>
+      </TooltipContent>
+    </Tooltip>
   )
 }
