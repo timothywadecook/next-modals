@@ -41,7 +41,7 @@ export function Modal({
     <Dialog defaultOpen onOpenChange={onOpenChange}>
       <DialogPortal>
         <DialogClose />
-        <DialogContent>
+        <DialogContent onFocusCapture={(e) => e.stopPropagation()}>
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>{subtitle}</DialogDescription>
