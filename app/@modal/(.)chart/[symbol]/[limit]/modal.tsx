@@ -49,7 +49,7 @@ export function Modal({
 
           {children}
           <DialogFooter>
-            <div className="flex flex-1 items-center">
+            <div className="flex flex-1 items-center justify-center sm:justify-normal">
               <span className="text-sm text-muted-foreground">
                 Showing <strong>{limit}</strong> data points
               </span>
