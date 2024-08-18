@@ -27,7 +27,7 @@ export default function Home() {
                   <Link
                     className=""
                     key={s.symbol}
-                    href={`#`}
+                    href={`/chart/${s.symbol}/100`}
                     legacyBehavior
                     passHref
                   >
