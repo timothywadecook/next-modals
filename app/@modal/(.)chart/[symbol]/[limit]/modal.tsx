@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import {
   Dialog,
   DialogClose,
@@ -12,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
+import { ModalSettings } from "./modal-settings"
 
 export function Modal({
   children,
@@ -23,6 +24,7 @@ export function Modal({
   subtitle: string
 }) {
   const router = useRouter()
+  const { limit } = useParams()
 
   function onDismiss() {
     router.back()
@@ -47,6 +49,12 @@ export function Modal({
 
           {children}
           <DialogFooter>
+            <div className="flex flex-1 items-center">
+              <span className="text-sm text-muted-foreground">
+                Showing <strong>{limit}</strong> data points
+              </span>
+            </div>
+            <ModalSettings />
             <Button onClick={onDismiss}>Done</Button>
           </DialogFooter>
         </DialogContent>
