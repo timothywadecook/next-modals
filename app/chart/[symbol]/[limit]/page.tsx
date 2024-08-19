@@ -7,6 +7,25 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 
+// only paths returned by generateStaticParams will be served
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const limitOptions = ["100", "500", "1000", "5000"]
+  return stocks.reduce(
+    (acc, stock) =>
+      acc.concat(
+        limitOptions.map((limit) => ({
+          symbol: stock.symbol,
+          limit,
+        }))
+      ),
+    [] as Params[]
+  )
+}
+
+type Params = { symbol: string; limit: string }
+
 type Props = {
   params: { symbol: string; limit: string }
 }
