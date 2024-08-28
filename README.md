@@ -1,6 +1,6 @@
 <div>
     <a href="https://www.loom.com/share/60a5b4362a324221967d83a33c9468d9">
-      <p>Clarum HW - 18 August 2024 - Watch Video</p>
+      <p>NextJS Modal Chart - 18 August 2024 - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/60a5b4362a324221967d83a33c9468d9">
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/60a5b4362a324221967d83a33c9468d9-875db0b31b79388a-full-play.gif">
